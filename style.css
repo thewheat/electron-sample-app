@@ -1,0 +1,10 @@
+body {
+    font-family: sans-serif;
+    margin: 0 auto;
+    width: 95%;
+}
+
+ul#log {
+    max-height: 10em;
+    overflow: auto;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h2>Shortcuts</h2>
+
+    <section><label>Show
+      <input class="saveable shortcut" id="shortcut-toggle" type="text" value=""> (<a target="_blank" href="https://www.electronjs.org/docs/api/accelerator">Format</a>)
+      <BR><input id="shortcut-toggle-set" type="button" value="Record new shortcut">
+      <input id="shortcut-toggle-cancel" type="button" value="Cancel" disabled>
+    </label></section>
+
+    <section><label>Hide Dock/Taskbar icon
+      <input class="saveable" type="checkbox" id="hide-dock-icon">
+    </label></section>
+
+    <section><label>Hide System Tray icon
+      <input class="saveable" type="checkbox" id="hide-tray-icon">
+    </label></section>
+
+    <BR><BR>
+      <input id="save" type="button" value="Save">
+      <input id="saveAndClose" type="button" value="Save and Close">
+      <input id="cancel" type="button" value="Close">
+      <script src="./settings-renderer.js"></script>
+  </body>
+</html>

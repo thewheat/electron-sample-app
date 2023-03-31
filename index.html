@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Electron App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>Hello Sample Electron app</h1>
+
+    <h3>Features</h3>
+    <ul>
+      <li>Global shortcut to toggle window</li>
+      <li>Tray icon with menu</li>
+      <li>Storing simple data editable via Settings page</li>
+      <li>Ability to enable/disable tray and dock icons</li>
+      <li><a href="https://www.electronjs.org/docs/latest/tutorial/tutorial-preload">Preload scripts</a> to allow frontend Javascript code to access backend Node.js features</li>
+      <li><a href="https://www.electronjs.org/docs/latest/tutorial/ipc">Inter-Process Communication</a> between Electron backend Node.js process in <code>main.js</code> and web front end code in <code>index-renderer.js</code> / <code>settings-renderer.js</code> to pass data</li>
+    </ul>
+
+    <h3>File Breakdown</h3>
+    <ul>
+      <li><code>main.js</code>
+          <ul><li>backend Electron process that runs Node.js and can access OS level functions</li></ul>
+      </li>
+      <li><code>index.html</code>
+        <ul><li>main app that opens on start up (this page) runs regular web code i.e. HTML, CSS, Javscript</li></ul>
+      </li>
+      <li><code>index-renderer.js</code>
+        <ul><li>Javascript for main app (can be shared with a traditional web app)</li></ul>
+      </li>
+      <li><code>index-preload.js</code>
+        <ul><li>Bridging functions to allow frontend Javscript <code>index-renderer.js</code> and backend <code>main.js</code> to interact through Inter-Process Communication</li></ul>
+      </li>
+      <li><code>settings.html</code>
+        <ul><li>settings page</li></ul>
+      </li>
+      <li><code>settings-renderer.js</code>
+        <ul><li>Javascript for settings page</li></ul>
+      </li>
+      <li><code>settings-preload.js</code>
+        <ul><li>Bridging functions to allow frontend Javscript <code>settings-renderer.js</code> and backend <code>main.js</code> to interact through Inter-Process Communication</li></ul>
+      </li>
+      <li><code>assets/appIcon.png</code>
+        <ul><li>icon to for the app in the app switcher and dock</li></ul>
+      </li>
+      <li><code>assets/trayIcon.png</code>
+        <ul><li>icon to show in the system tray</li></ul>
+      </li>
+    </ul>
+    <hr>
+    <h3>Logs</h3>
+    <input id="data" type="text">
+    <input type="button" value="Send Data" id="sendDataBtn">
+    <ul id="log"></ul>
+    <script src="./index-renderer.js"></script>
+  </body>
+</html>
